@@ -1,0 +1,1878 @@
+<html lang="zh"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZERO Markets — 社媒视频运营 SOP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B1118;
+      --bg-elev: #111A22;
+      --card: #15202A;
+      --card-2: #1B2733;
+      --border: #243240;
+      --border-soft: #1B2731;
+      --green: #00B955;
+      --green-light: #4ADE94;
+      --green-pale: #B6F3CE;
+      --gray-dark: #2C393E;
+      --text: #F3F6F7;
+      --text-muted: #8FA0AA;
+      --text-faint: #5C6D77;
+      --light: #FAFAFA;
+      --light-2: #FFFFFF;
+      --ink: #152028;
+      --ink-muted: #5B6B75;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --maxw: 1180px;
+      --red: #E5897A;
+      --amber: #E0B15A;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .texture {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(135deg, transparent 48%, rgba(0, 185, 85, 0.05) 49%, rgba(0, 185, 85, 0.05) 50%, transparent 51%),
+        linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.02) 49%, rgba(255, 255, 255, 0.02) 50%, transparent 51%);
+      background-size: 140px 140px, 90px 90px;
+      opacity: 0.6;
+    }
+
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 17, 24, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .topnav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-name span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .navlinks::-webkit-scrollbar { display: none; }
+
+    .navlinks a {
+      white-space: nowrap;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .navlinks a:hover {
+      color: var(--text);
+      background: var(--card);
+    }
+
+    .topnav-tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-faint);
+    }
+
+    .tabbar {
+      display: flex;
+      gap: 6px;
+      padding: 0 32px 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .tabbar::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tab-btn svg { flex-shrink: 0; opacity: 0.85; }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: var(--card);
+    }
+
+    .tab-btn.active {
+      background: rgba(0, 185, 85, 0.14);
+      color: var(--green-light);
+      border-color: rgba(0, 185, 85, 0.35);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 72px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0 0 20px;
+      max-width: 820px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 0 28px;
+      font-weight: 400;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+    }
+
+    .pill b {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 56px 0;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .section:first-of-type { border-top: none; }
+
+    .kicker {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin: 0 0 18px;
+    }
+
+    h2 .accent {
+      background: linear-gradient(90deg, var(--green-light), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lede {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 0 36px;
+    }
+
+    h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .card + .card { margin-top: 20px; }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .flow-scroll {
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 8px;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .flow-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .flow-scroll::-webkit-scrollbar-track {
+      background: var(--bg-elev);
+      border-radius: 4px;
+    }
+
+    .flow-scroll::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    .flow-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--green);
+    }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      padding: 6px 2px 14px;
+      min-width: max-content;
+    }
+
+    .flow-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      min-width: 168px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .flow-step .num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--green-light);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .flow-step .t {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .flow-step .s {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      flex-shrink: 0;
+      color: var(--text-faint);
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      padding: 11px 0;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-soft);
+      align-items: flex-start;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .checklist svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist b {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .table-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      background: #F0F1EC;
+      padding: 14px 20px;
+      border-bottom: 1px solid #E4E5DF;
+    }
+
+    td {
+      padding: 16px 20px;
+      font-size: 14.5px;
+      color: var(--ink);
+      border-bottom: 1px solid #EEEFEA;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    td b { font-weight: 700; }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(0, 185, 85, 0.12);
+      color: #0C7A3C;
+    }
+
+    .tag.risk-high {
+      background: rgba(224, 90, 70, 0.14);
+      color: #B3402E;
+    }
+
+    .tag.risk-mid {
+      background: rgba(224, 177, 90, 0.16);
+      color: #8A6414;
+    }
+
+    .tag.risk-low {
+      background: rgba(0, 185, 85, 0.12);
+      color: #0C7A3C;
+    }
+
+    .ntree {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+    }
+
+    .ntree-root {
+      font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      word-break: break-all;
+    }
+
+    .ntree-branch {
+      margin: 0 0 14px 0;
+      padding-left: 18px;
+      border-left: 2px solid var(--border);
+    }
+
+    .ntree-branch:last-child { margin-bottom: 0; }
+
+    .ntree-branch-title {
+      font-weight: 700;
+      color: var(--green-light);
+      margin-bottom: 6px;
+      font-size: 13.5px;
+    }
+
+    .ntree-item {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 2px 0 2px 4px;
+    }
+
+    .rule-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(0, 185, 85, 0.1);
+      border: 1.5px solid rgba(0, 185, 85, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .rule-banner.warn {
+      background: rgba(224, 90, 70, 0.1);
+      border-color: rgba(224, 90, 70, 0.4);
+    }
+
+    .rule-banner b {
+      font-size: 14.5px;
+      color: var(--green-light);
+      letter-spacing: 0.02em;
+    }
+
+    .rule-banner.warn b { color: var(--red); }
+
+    .rule-banner p {
+      margin: 2px 0 0;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .callout {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(0, 185, 85, 0.07);
+      border: 1px solid rgba(0, 185, 85, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin: 22px 0;
+    }
+
+    .callout.warn {
+      background: rgba(224, 90, 70, 0.08);
+      border-color: rgba(224, 90, 70, 0.28);
+    }
+
+    .callout.pending {
+      background: rgba(224, 177, 90, 0.08);
+      border-color: rgba(224, 177, 90, 0.32);
+    }
+
+    .callout-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+    }
+
+    .callout b {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .date-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .date-card {
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+    }
+
+    .date-card.good {
+      background: rgba(0, 185, 85, 0.06);
+      border-color: rgba(0, 185, 85, 0.3);
+    }
+
+    .date-card.bad {
+      background: rgba(224, 90, 70, 0.06);
+      border-color: rgba(224, 90, 70, 0.3);
+    }
+
+    .date-card .label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .date-card.good .label { color: var(--green-light); }
+    .date-card.bad .label { color: #E5897A; }
+
+    .date-code {
+      font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .date-card p {
+      margin: 10px 0 0;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .week-cell {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+
+    .week-cell .w {
+      font-weight: 800;
+      font-size: 13.5px;
+      color: var(--green-light);
+      margin-bottom: 6px;
+    }
+
+    .week-cell .d {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .qref-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .qref-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid #EEEFEA;
+      color: var(--ink);
+    }
+
+    .qref-table tr td:first-child {
+      color: var(--ink-muted);
+      font-weight: 600;
+      width: 38%;
+    }
+
+    .qref-table tr td:last-child {
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .qref-table tr:last-child td { border-bottom: none; }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 48px 0 60px;
+      text-align: center;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-faint);
+      margin: 0;
+    }
+
+    .decision-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .decision-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .decision-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--green-light);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      min-width: 170px;
+      flex-shrink: 0;
+    }
+
+    .mini-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mini-chip {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 13px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .mini-arrow {
+      color: var(--text-faint);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .self-check-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid #EEEFEA;
+    }
+
+    .self-check-item:last-child { border-bottom: none; }
+
+    .self-check-item .q {
+      font-size: 14.5px;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .self-check-item .yn {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    /* ---------- naming generator ---------- */
+    .gen-box{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px;}
+    .gen-type-field{max-width:420px;}
+    .gen-type-field select{width:100%;}
+    .gen-fields-grid{
+      display:grid; grid-template-columns:repeat(2, 1fr); gap:16px;
+      margin-top:22px; padding-top:22px; border-top:1px solid var(--border);
+    }
+    .gen-field{display:flex; flex-direction:column; gap:7px;}
+    .gen-field label{
+      font-size:12px; font-weight:700; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.04em;
+      display:flex; align-items:center; gap:6px;
+    }
+    .gen-field input, .gen-field select{
+      background:var(--bg-elev); border:1px solid var(--border); color:var(--text);
+      border-radius:8px; padding:11px 13px; font-size:14px; font-family:'Plus Jakarta Sans', sans-serif;
+      outline:none; transition:border-color .15s;
+    }
+    .gen-field input:focus, .gen-field select:focus{border-color:var(--green);}
+    .gen-field select{cursor:pointer;}
+    .gen-hint{font-size:11.5px; color:var(--text-faint); margin-top:-2px;}
+    .gen-output{
+      margin-top:28px; background:rgba(0,185,85,0.07); border:1px solid rgba(0,185,85,0.3);
+      border-radius:var(--radius-sm); padding:22px 24px;
+    }
+    .gen-output-label{
+      font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+      color:var(--green-light); margin-bottom:12px;
+    }
+    .gen-output-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+    .gen-result{
+      flex:1; min-width:220px; font-family:ui-monospace, 'SF Mono', Consolas, monospace;
+      font-size:16px; font-weight:600; color:var(--text); word-break:break-all; line-height:1.5;
+    }
+    .gen-result.incomplete{color:var(--text-faint); font-style:italic; font-weight:400; font-size:13.5px;}
+    .gen-copy-btn{
+      flex-shrink:0; background:var(--green); color:#04250F; border:none; border-radius:8px;
+      padding:11px 20px; font-weight:700; font-size:13.5px; cursor:pointer; font-family:'Plus Jakarta Sans', sans-serif;
+      transition:opacity .15s;
+    }
+    .gen-copy-btn:hover{opacity:0.86;}
+    .gen-copy-btn:disabled{opacity:0.35; cursor:not-allowed;}
+
+    .tip{
+      position:relative; display:inline-flex; align-items:center; justify-content:center;
+      width:16px; height:16px; border:none; background:transparent; padding:0; margin:0;
+      color:var(--text-faint); cursor:help; flex-shrink:0;
+    }
+    .tip:hover, .tip:focus{color:var(--green-light); outline:none;}
+    .tip-bubble{
+      position:absolute; bottom:135%; left:50%; transform:translateX(-50%);
+      width:210px; background:var(--card-2); border:1px solid var(--border); border-radius:9px;
+      padding:10px 12px; font-size:12px; font-weight:400; line-height:1.5; color:var(--text-muted);
+      text-transform:none; letter-spacing:normal;
+      opacity:0; visibility:hidden; pointer-events:none; transition:opacity .15s;
+      box-shadow:0 10px 28px rgba(0,0,0,0.4); z-index:30;
+    }
+    .tip-bubble::after{
+      content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+      border:6px solid transparent; border-top-color:var(--border);
+    }
+    .tip:hover .tip-bubble, .tip:focus .tip-bubble, .tip:focus-within .tip-bubble{
+      opacity:1; visibility:visible; pointer-events:auto;
+    }
+
+    .chip-row{display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-family:'Plus Jakarta Sans', sans-serif;}
+    .chip{
+      display:inline-flex; align-items:center; border-radius:7px; padding:7px 11px;
+      font-size:13.5px; font-weight:700; line-height:1;
+    }
+    .chip-reg{background:var(--gray-dark); color:#E8EEF0; border:1px solid #3c4a51;}
+    .chip-lang{background:var(--green); color:#04250F;}
+    .chip-region{background:transparent; border:1.5px solid var(--green-light); color:var(--green-light);}
+    .chip-free{background:var(--card-2); border:1px solid var(--border); color:var(--text);}
+    .sep{color:var(--text-faint); font-weight:700; font-size:13px; padding:0 1px;}
+    .sep.under{color:var(--green-light);}
+
+    @media (max-width: 900px) {
+      .gen-fields-grid { grid-template-columns: 1fr; }
+      .wrap { padding: 0 20px; }
+      .topnav-inner { padding: 12px 20px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+      .subgrid { grid-template-columns: 1fr; }
+      .date-compare { grid-template-columns: 1fr; }
+      .week-grid { grid-template-columns: repeat(2, 1fr); }
+      .tabbar { padding: 0 20px 14px; }
+      .decision-card { flex-direction: column; align-items: flex-start; }
+      .self-check-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="texture"></div>
+
+<!-- 顶部导航 -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none">
+        <rect x="4" y="4" width="92" height="92" rx="18" fill="#0F1820"></rect>
+        <path d="M28 32H72L36 68H72" stroke="#F3F6F7" stroke-width="9" stroke-linecap="square" fill="none"></path>
+        <path d="M66 32L30 68" stroke="#00B955" stroke-width="10" stroke-linecap="round"></path>
+      </svg>
+      <div class="brand-name">ZERO MARKETS <span>· 社媒视频运营 SOP</span></div>
+    </div>
+    <div class="navlinks">
+      <span class="topnav-tag">v1.3 · 2026年9月</span>
+    </div>
+  </div>
+  <div class="tabbar">
+    <button class="tab-btn" data-tab="overview" onclick="showTab('overview', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"></rect><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      总览
+    </button>
+    <button class="tab-btn" data-tab="workflow" onclick="showTab('workflow', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      完整流程
+    </button>
+    <button class="tab-btn" data-tab="compliance" onclick="showTab('compliance', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      合规与审核
+    </button>
+    <button class="tab-btn" data-tab="selfcheck" onclick="showTab('selfcheck', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M8 8h8M8 12l1.5 1.5L12 11M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      合规自查清单
+    </button>
+    <button class="tab-btn" data-tab="exceptions" onclick="showTab('exceptions', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="currentColor" stroke-width="1.6"></path></svg>
+      异常处理
+    </button>
+    <button class="tab-btn" data-tab="platforms" onclick="showTab('platforms', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="13" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"></rect><path d="M16 9.5l4.4-2.6a1 1 0 011.6.8v8.6a1 1 0 01-1.6.8L16 14.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+      平台规则
+    </button>
+    <button class="tab-btn" data-tab="naming" onclick="showTab('naming', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 5h14M5 12h9M5 19h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M17 15l2.5 2.5L17 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      命名生成器
+    </button>
+    <button class="tab-btn" data-tab="reference" onclick="showTab('reference', true)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 016.5 3H19v16.5a1.5 1.5 0 01-1.5 1.5H6.5A2.5 2.5 0 014 18.5v-13z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8 8h8M8 11.5h8M8 15h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      快速参考
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>SOP · 社媒视频运营（审核与发布环节）</div>
+    <h1>ZERO Markets 社媒视频运营 SOP</h1>
+    <p class="hero-sub">脚本 · 合规 · 录制 · 剪辑 · 审核 · 发布</p>
+    <div class="hero-meta">
+      <span class="pill">适用：<b>Global Social Media 视频</b></span>
+      <span class="pill">关键节点：<b>每月 1 号前提交合规</b></span>
+      <span class="pill">平台：<b>IG / FB / TikTok / YouTube</b></span>
+      <span class="pill">范围：<b>审核与发布环节</b>（不含脚本撰写/切片机制）</span>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 总览 ========== -->
+<div id="panel-overview" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">SOP 目的</p>
+      <h2>为什么需要这份 <span class="accent">SOP</span></h2>
+      <p class="lede">统一社媒视频从脚本到发布的完整流程，明确每一步谁负责、状态怎么改、文件放哪里。</p>
+      <div class="card">
+        <ul class="checklist" style="columns:2; column-gap:32px;">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提前一个月准备内容，避免临时赶工</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>合规前置，避免录完才发现问题</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>明确每一步谁负责、状态怎么改</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>竖屏视频同一条发 IG / FB / TikTok，发布文案分开</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>YouTube 横屏单独准备，命名有独立规则</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">关键时间节点</p>
+      <h2>每月 1 号是 <span class="accent">合规提交节点</span></h2>
+      <p class="lede">脚本、封面文字、各平台发布文案必须一起提交合规，通过后才能进入录制。</p>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>时间</th><th>必须完成</th></tr></thead>
+          <tbody>
+            <tr><td>每月 1 号前</td><td><b>下月脚本 + 封面文字 + 各平台发布文案准备好</b></td></tr>
+            <tr><td>每月 1 号</td><td>提交第一次合规审核</td></tr>
+            <tr><td>合规通过后</td><td>Monday 状态改 <b>To Record</b>，Marcos 开始录制</td></tr>
+            <tr><td>录制完成</td><td>状态改 <b>Edit + Cover</b></td></tr>
+            <tr><td>剪辑 + 封面完成</td><td>Edson Figma 审核</td></tr>
+            <tr><td>Edson 通过后</td><td>第二次合规审核</td></tr>
+            <tr><td>第二次合规通过后</td><td>Monday 改 <b>To Schedule</b></td></tr>
+            <tr><td>排期发布</td><td>IG / FB / TikTok / YouTube</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule-banner" style="margin-top:20px;">
+        <div>
+          <b>每月 1 号 = 合规提交节点</b>
+          <p>脚本、封面文字、各平台发布文案必须一起提交合规，通过后才能进入录制。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">流程总览</p>
+      <h2>一图看懂 <span class="accent">完整流程</span></h2>
+      <p class="lede">从脚本准备到发布，每个环节环环相扣。可左右拖动查看完整流程。</p>
+      <div class="flow-scroll">
+        <div class="flow">
+          <div class="flow-step"><div class="num">STEP 1</div><div class="t">脚本准备</div><div class="s">每月 1 号前 · 脚本 + 封面文字 + 发布文案</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 2</div><div class="t">第一次合规</div><div class="s">脚本 + 封面文字 + 各平台发布文案</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 3</div><div class="t">To Record</div><div class="s">Marcos 录制</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 4</div><div class="t">Edit + Cover</div><div class="s">Felipe 团队剪辑 + 封面</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 5</div><div class="t">Approval</div><div class="s">Edson Figma 审核（封面 + 创意）</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 6</div><div class="t">第二次合规</div><div class="s">封面 + 画面合规</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 7</div><div class="t">发布</div><div class="s">IG / FB / TikTok / YouTube</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 完整流程 ========== -->
+<div id="panel-workflow" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">阶段 1</p>
+      <h2>脚本准备 <span class="accent">（每月 1 号前）</span></h2>
+      <p class="lede">负责人：Amber。脚本、封面文字、各平台发布文案必须一起准备好。</p>
+      <div class="subgrid">
+        <div class="card">
+          <h3>要做的事</h3>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>准备下月视频脚本</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>准备封面文字 / 封面文案</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>准备发布文案：IG / FB / TikTok / YouTube 分开</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>上传到内容专用 SharePoint</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提交第一次合规审核</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>SharePoint 结构</h3>
+          <div class="ntree">
+            <div class="ntree-root">SharePoint / Compliance / 2026 / October /</div>
+            <div class="ntree-branch">
+              <div class="ntree-branch-title">SVG-EN-ALL_video_rl_104_What-Moves-the-Markets_261015</div>
+              <div class="ntree-item">Script</div>
+              <div class="ntree-item">Cover-Text</div>
+              <div class="ntree-item">Caption-IG</div>
+              <div class="ntree-item">Caption-FB</div>
+              <div class="ntree-item">Caption-TK</div>
+              <div class="ntree-item">Caption-YT</div>
+              <div class="ntree-item">Compliance-Approval</div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:16px;">
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4ADE94" stroke-width="1.6"></circle><path d="M12 8v5" stroke="#4ADE94" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="16" r="1" fill="#4ADE94"></circle></path></svg>
+            <div><b>SharePoint 由 Amber 维护</b><p>和剪辑师用的 Google Drive 分开管理。文件夹名遵循统一命名规范，见下方说明及「命名生成器」标签页。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h3>文件 / 文件夹命名规范</h3>
+        <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 16px;">监管 - 语言 - 地区 前三段用连字符连接，后面各段用下划线连接，整体规律：</p>
+        <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:16px;">
+          监管_语言_地区_平台_类型_编号_主题_时间
+        </div>
+        <div class="table-card">
+          <table>
+            <thead><tr><th>字段</th><th>示例值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><b>监管</b></td><td>SVG</td><td>发布主体所属监管（如 SVG / FSC / ZMB）</td></tr>
+              <tr><td><b>语言</b></td><td>EN</td><td>内容实际使用的语言</td></tr>
+              <tr><td><b>地区</b></td><td>ALL</td><td>面向的受众地区，不是制作团队所在地</td></tr>
+              <tr><td><b>平台</b></td><td>IG</td><td>发布平台（IG / FB / TK / YT）</td></tr>
+              <tr><td><b>类型</b></td><td>static</td><td>内容形式（static / video 等）</td></tr>
+              <tr><td><b>编号</b></td><td>crsl</td><td>细分格式或序号（如 crsl 轮播、rl 短视频、01/02 序号）</td></tr>
+              <tr><td><b>主题</b></td><td>Economic-Calendar</td><td>内容主题/标题，有出镜人时写成 主播-主题</td></tr>
+              <tr><td><b>时间</b></td><td>260914</td><td>发布日期，格式 YYMMDD</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rule-banner" style="margin-top:16px;">
+          <div>
+            <b>示例：SVG-EN-ALL_IG_static_crsl_Economic-Calendar_260914</b>
+            <p>不确定怎么拼？直接用「命名生成器」标签页里的工具，选好类型、填空、一键复制，不用手动拼接。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">阶段 2</p>
+      <h2>第一次合规审核 <span class="accent">（脚本 + 封面文字 + 发布文案）</span></h2>
+      <p class="lede">负责人：Compliance。跟进：Amber。合规通过后，Monday 状态改为 To Record。</p>
+      <div class="card">
+        <ul class="checklist">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Amber 提交脚本 + 封面文字 + 各平台发布文案</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Compliance 审核</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>有问题 → Amber 修改 → 再提交</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>没问题 → Monday 状态改 <b>To Record</b></span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>脚本同步上传到 Google Drive，供剪辑团队使用</span></li>
+        </ul>
+      </div>
+      <div class="callout warn" style="margin-top:20px;">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E5897A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E5897A" stroke-width="1.6"></path></svg>
+        <div><b>合规不通过，不进入录制</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">阶段 3 &amp; 4</p>
+      <h2>录制 + 剪辑 <span class="accent">（Marcos / Felipe 团队）</span></h2>
+      <p class="lede">录制由 Marcos 负责，剪辑和封面由 Felipe Campos 团队负责。</p>
+      <div class="subgrid">
+        <div class="card">
+          <h3>录制 — Marcos Praça</h3>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>确认 Monday 状态是 To Record</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>开始录制（竖屏 + 横屏）</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>录制完成后状态改为 <b>Edit + Cover</b></span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>原始视频上传到 Google Drive</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>剪辑 + 封面 — Felipe 团队</h3>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>状态为 Edit + Cover</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>剪辑师由 Felipe 分配</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>封面：Victor 和 Felipe Santos</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>完成后进入 Edson Figma 审核</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">阶段 5–7</p>
+      <h2>审核 → 发布</h2>
+      <p class="lede">从首轮审核到发布，每一步都有明确负责人和工具。</p>
+
+      <div class="decision-grid">
+        <div class="decision-card">
+          <div class="decision-label">Approval（Figma）</div>
+          <div class="mini-flow">
+            <span class="mini-chip">封面 + 创意完成</span><span class="mini-arrow">→</span><span class="mini-chip">Figma</span><span class="mini-arrow">→</span><span class="mini-chip">Edson 审核封面和创意</span>
+          </div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-label">第二次合规审核</div>
+          <div class="mini-flow">
+            <span class="mini-chip">封面 + 画面</span><span class="mini-arrow">→</span><span class="mini-chip">Compliance</span><span class="mini-arrow">→</span><span class="mini-chip">通过后进 To Schedule</span>
+          </div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-label">发布</div>
+          <div class="mini-flow">
+            <span class="mini-chip">To Schedule</span><span class="mini-arrow">→</span><span class="mini-chip">IG</span><span class="mini-chip">FB</span><span class="mini-chip">TikTok</span><span class="mini-chip">YouTube</span><span class="mini-arrow">→</span><span class="mini-chip">链接回填 Monday</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 合规与审核 ========== -->
+<div id="panel-compliance" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">两次合规审核</p>
+      <h2>合规前置 <span class="accent">审核</span></h2>
+      <p class="lede">第一次合规审脚本 + 封面文字 + 发布文案，第二次合规审封面 + 画面，通过后即可进入发布排期。</p>
+
+      <div class="subgrid">
+        <div class="card">
+          <h3>第一次合规审核</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">每月 1 号前提交，通过后才能进入录制。</p>
+          <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:14px;">
+            脚本 + 封面文字 + IG 发布文案 + FB 发布文案 + TK 发布文案 + YT 发布文案
+          </div>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提交人：Amber</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>审核人：Compliance</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>存放：内容专用 SharePoint</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后：Monday 改 To Record</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>第二次合规审核</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">Edson Figma 审核通过后提交，主要看画面有没有问题。</p>
+          <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:14px;">
+            封面 + 画面
+          </div>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>画面问题 → Felipe 团队改</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后 → Monday 改 To Schedule，进入发布排期</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule-banner" style="margin-top:24px;">
+        <div>
+          <b>第二次合规在 Edson Figma 审核之后</b>
+          <p>顺序：剪辑 + 封面 → Edson Figma（封面 + 创意）→ 第二次合规（封面 + 画面）→ To Schedule。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">新增 · 竖屏 vs 横屏</p>
+      <h2>Risk Warning <span class="accent">展示规则</span></h2>
+      <p class="lede">竖屏（IG/FB/TikTok）和横屏（YouTube）的 Risk Warning 呈现方式不同，审核时要分开确认，不能用同一套标准检查。</p>
+
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:18%;">视频类型</th><th>Risk Warning 位置 1</th><th>Risk Warning 位置 2</th></tr></thead>
+          <tbody>
+            <tr><td><b>竖屏</b>（IG / FB / TikTok）</td><td>贴在<b>视频封面</b>上的文字</td><td>写进<b>发布文案</b>里</td></tr>
+            <tr><td><b>横屏</b>（YouTube）</td><td>视频画面<b>下方固定显示</b>一条，贯穿播放全程（不是封面文字）</td><td>写进<b>发布文案</b>里</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn" style="margin-top:20px;">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E5897A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E5897A" stroke-width="1.6"></path></svg>
+        <div><b>竖屏视频不需要在画面里加片头/片尾或跑马灯式 Risk Warning</b><p>竖屏靠"封面 + 文案"两处覆盖即可；横屏因为画面本身没有"封面"这个呈现位置，所以改用"画面下方固定条"来承担这个功能。审核时按视频方向选对应标准，不要把竖屏的标准套到横屏上，反之亦然。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">状态流转</p>
+      <h2>Monday <span class="accent">状态说明</span></h2>
+      <div class="table-card">
+        <table>
+          <thead><tr><th>状态</th><th>含义</th><th>谁负责</th></tr></thead>
+          <tbody>
+            <tr><td><b>Recording</b></td><td>录制中</td><td>Marcos</td></tr>
+            <tr><td><b>Edit + Cover</b></td><td>剪辑 + 封面</td><td>Felipe 团队</td></tr>
+            <tr><td><b>Approval</b></td><td>Edson Figma 审核（封面 + 创意）</td><td>Edson</td></tr>
+            <tr><td><b>Final Approval</b></td><td>最终审核</td><td>Nikki</td></tr>
+            <tr><td><b>To Schedule</b></td><td>第二次合规通过，等排期</td><td>Amber</td></tr>
+            <tr><td><b>Done</b></td><td>已发布</td><td>Amber</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 合规自查清单（新增）========== -->
+<div id="panel-selfcheck" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">新增 · 提交前自查</p>
+      <h2>合规自查清单</h2>
+      <p class="lede">分两组：提交第一次合规前自查（脚本+封面文字+发布文案），提交第二次合规前自查（封面+画面）。目的是让 Amber/Felipe 团队自己先筛一遍，减少来回打回的次数，不代替 Compliance 的正式审核。</p>
+
+      <div class="rule-banner">
+        <div>
+          <b>自查清单不是审核标准本身</b>
+          <p>这是"提交前先过一遍"的最低限度筛查，最终是否通过仍以 Compliance 的判断为准；如某一项拿不准，直接标注"不确定"提交，让 Compliance 重点复核，不要自己下结论。</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:32px;">一、第一次合规前自查（脚本 + 封面文字 + 发布文案）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:6%;">#</th><th>检查项</th><th style="width:18%;">结果</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>是否包含收益承诺/保证类表达（如"稳赚""保证回报""guaranteed profit"）</td><td>□是 □否</td></tr>
+            <tr><td>2</td><td>是否包含喊单/具体买卖点位建议（如"现在买入""目标价位"）</td><td>□是 □否</td></tr>
+            <tr><td>3</td><td>是否晒出具体盈利数字、真实账户截图或真实交易记录</td><td>□是 □否</td></tr>
+            <tr><td>4</td><td>是否有可能被理解为"投资建议"而非"信息分享"的措辞</td><td>□是 □否</td></tr>
+            <tr><td>5</td><td>【竖屏】Risk Warning 是否已按模板贴在<b>视频封面</b>上（不是发布文案，是封面本身的文字）</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>5-1</td><td>【横屏】Risk Warning 文字条是否已设计为<b>视频画面下方固定显示、贯穿全程</b>（提交脚本/剪辑说明时需注明，供后续剪辑落实）</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>6</td><td>各平台发布文案（IG/FB/TK/YT）是否都各自包含一条 Risk Warning 合规话术，而非只统一写了一版</td><td>□是 □否</td></tr>
+            <tr><td>7</td><td>是否涉及点名/暗示特定受限地区、受限人群</td><td>□是 □否</td></tr>
+            <tr><td>8</td><td>【竖屏】封面文字除了 Risk Warning 外，是否单独构成收益暗示（即使正文没有，封面文字本身也需要单独判断）</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>9</td><td>是否涉及监管资质/公司资质表述，且措辞与最新获批口径一致（不能用旧的/过期的资质说法）</td><td>□是 □否 □不涉及</td></tr>
+            <tr><td>10</td><td>是否涉及文化敏感点（如中东/东南亚受众的表达、宗教/习俗相关内容）</td><td>□是 □否 □不涉及</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:36px;">二、第二次合规前自查（封面 + 画面，Edson Figma 通过后提交前）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:6%;">#</th><th>检查项</th><th style="width:18%;">结果</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>【竖屏】封面上的 Risk Warning 文字是否清晰可读，且和已通过合规的版本完全一致（剪辑/设计过程中有没有被临时改动）</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>1-1</td><td>【横屏】画面下方固定显示的 Risk Warning 条是否<b>从头到尾贯穿播放</b>（没有中途消失/被其他字幕遮挡），文字大小和对比度清晰可读</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>2</td><td>封面上除 Risk Warning 外的其他文字/数字是否和已通过合规的封面文字完全一致</td><td>□是 □否</td></tr>
+            <tr><td>3</td><td>画面中是否出现真实账户余额、真实盈亏走势图、真实客户信息等敏感画面</td><td>□是 □否</td></tr>
+            <tr><td>4</td><td>画面中出现的图表/数据是否有来源标注（避免被认为是编造数据）</td><td>□是 □否</td></tr>
+            <tr><td>5</td><td>字幕内容是否与已通过的脚本/文案逐字一致（剪辑阶段是否有新增口播或改写）</td><td>□是 □否</td></tr>
+            <tr><td>6</td><td>品牌视觉规范（Logo、配色、字体）是否符合最新版本</td><td>□是 □否</td></tr>
+            <tr><td>7</td><td>是否有画面元素可能被解读为暗示特定地区/受限市场定向</td><td>□是 □否</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn" style="margin-top:28px;">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E5897A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E5897A" stroke-width="1.6"></path></svg>
+        <div><b>任意一项为"是"（除第9、10项"不涉及"外）</b><p>需要在提交合规时主动标注该项，并简要说明原因，方便 Compliance 优先核查，而不是留给他们自己发现。</p></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 异常处理（新增）========== -->
+<div id="panel-exceptions" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">新增 · 出问题时怎么办</p>
+      <h2>异常处理表</h2>
+      <p class="lede">按流程节点顺序列出常见异常情况：谁负责判断、怎么处理、下游怎么联动。目标是任何一环卡住时，团队都清楚"找谁、怎么办"，而不是临时讨论。</p>
+
+      <h3 style="margin-top:8px;">1 · 第一次合规被打回（脚本 / 封面文字 / 发布文案）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>措辞/表达类问题（禁用词、免责声明位置等，可直接修改）</td><td>Compliance 出具具体打回意见（标注是哪一部分+问题类型）→ Amber 24 小时内修改重新提交，不影响 Monday 状态（仍停留在 Script + Compliance）</td><td>Amber</td></tr>
+            <tr><td>方向性问题（选题/角度本身有合规风险，非措辞可修复）</td><td>暂停该条内容进入录制排期，Amber 和 Compliance 另约时间讨论是否可修改角度重新提交，或整体替换选题</td><td>Amber + Compliance</td></tr>
+            <tr><td>同一条内容连续 2 次被打回</td><td>暂停该条，升级为 Amber 与 Compliance 的专项沟通，确认是否继续修改还是直接替换，避免反复打回拖延当月排期</td><td>Amber（发起）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">2 · 录制延期（Marcos 不可用 / 场地问题等）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>延期 1-3 天，且不影响当月发布排期</td><td>顺延录制日期，Monday 状态保持 To Record 不变，同步通知 Felipe 团队顺延接收原始素材的时间</td><td>Marcos → 通知 Felipe</td></tr>
+            <tr><td>延期超过 3 天，可能影响本月发布排期</td><td>立即同步 Amber，评估是否需要调整发布排期，或临时启用已有存量素材顶替当期排期空缺</td><td>Marcos → Amber</td></tr>
+            <tr><td>下游连锁影响</td><td>Felipe 团队、Edson、Compliance（第二次）按延期天数整体顺延接收时间，不压缩各自的处理窗口</td><td>Amber 统一同步</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">3 · 剪辑 / 封面延期（Felipe 团队）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>延期但距发布排期还有余量</td><td>Felipe 团队限时补做（建议 24-48 小时内），Monday 状态保持 Edit + Cover，不进入下一步</td><td>Felipe 团队</td></tr>
+            <tr><td>延期且逼近发布排期</td><td>同步 Amber，评估是否顺延该条发布日期，不建议为赶排期跳过 Edson 审核或合规审核</td><td>Felipe 团队 → Amber</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">4 · Edson Figma 审核不通过（封面 / 创意问题）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>封面/创意需要调整（常规情况）</td><td>Edson 出具具体修改意见 → Felipe 团队（Victor / Felipe Santos）修改 → 重新提交 Figma 审核，Monday 状态保持 Edit + Cover 或 Approval，视流程习惯而定</td><td>Felipe 团队</td></tr>
+            <tr><td>修改后画面内容发生变化（不只是排版调整）</td><td>需要重新走一遍第二次合规自查清单（本 SOP「合规自查清单」第二组），避免改动后引入新的合规问题</td><td>Felipe 团队 → Amber 确认</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">5 · 第二次合规不通过（封面 + 画面）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>画面/封面本身的问题（可修改）</td><td>Compliance 出具具体意见 → Felipe 团队修改 → 视改动范围决定是否需要重新过 Edson 审核（大改需要，小改可跳过视团队约定）→ 重新提交第二次合规</td><td>Felipe 团队</td></tr>
+            <tr><td>连续 2 次被第二次合规打回</td><td>升级为 Amber + Compliance + Felipe 三方沟通，排查是不是脚本阶段的合规判断和画面呈现之间有理解偏差，避免同类问题反复出现</td><td>Amber（发起）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">6 · 发布延误 / 链接未及时回填 Monday</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>某平台因平台方原因发布失败/延迟（如审核中、限流）</td><td>Amber 记录实际发布时间，其余平台按原排期正常发布，不因一个平台延迟而整体顺延</td><td>Amber</td></tr>
+            <tr><td>发布后链接未及时回填 Monday</td><td>发布当天内完成回填；超过 24 小时未回填，由 Amber 自查全部当周待发内容的回填状态，避免遗漏</td><td>Amber</td></tr>
+            <tr><td>发布后发现内容与已通过合规版本不一致（如临时被替换成未审核过的版本）</td><td>立即下架/设为私享，同步 Compliance 确认问题范围，按下架流程处理，不等下一次常规检查</td><td>Amber → Compliance</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-banner" style="margin-top:32px;">
+        <div>
+          <b>总原则：宁可顺延，不跳过审核环节</b>
+          <p>无论卡在哪一步，处理方式都是"顺延下游时间"而不是"压缩或跳过后面的审核步骤"来赶排期。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 平台规则 ========== -->
+<div id="panel-platforms" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">平台规则</p>
+      <h2>IG / FB / TikTok / YouTube <span class="accent">四平台</span></h2>
+      <p class="lede">竖屏视频同一条发 IG / FB / TikTok，发布文案分开准备。YouTube 为横屏，单独准备，命名有独立规则。</p>
+
+      <div class="table-card">
+        <table>
+          <thead><tr><th>平台</th><th>视频方向</th><th>视频</th><th>发布文案</th><th>命名</th></tr></thead>
+          <tbody>
+            <tr><td><b>Instagram</b></td><td>竖屏</td><td>同一条竖屏视频</td><td>单独准备</td><td>遵循命名公式</td></tr>
+            <tr><td><b>Facebook</b></td><td>竖屏</td><td>同一条竖屏视频</td><td>单独准备</td><td>遵循命名公式</td></tr>
+            <tr><td><b>TikTok</b></td><td>竖屏</td><td>同一条竖屏视频</td><td>单独准备</td><td>遵循命名公式</td></tr>
+            <tr><td><b>YouTube</b></td><td>横屏</td><td>单独横屏视频</td><td>单独准备</td><td>遵循命名公式</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rule-banner" style="margin-top:24px;">
+        <div>
+          <b>一个视频 = 一个 Monday 任务</b>
+          <p>不同平台的发布文案，在同一个任务的对话/评论里分别写出来。命名遵循命名公式。</p>
+        </div>
+      </div>
+
+      <div class="table-card" style="margin-top:20px;">
+        <table>
+          <thead><tr><th style="width:18%;">视频类型</th><th>Risk Warning 展示位置</th></tr></thead>
+          <tbody>
+            <tr><td><b>竖屏</b>（IG/FB/TikTok）</td><td>视频封面文字 + 发布文案，共两处</td></tr>
+            <tr><td><b>横屏</b>（YouTube）</td><td>视频画面下方固定条（贯穿全程）+ 发布文案，共两处</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:10px;">详细自查项见「合规自查清单」标签页。</p>
+
+      <div class="subgrid" style="margin-top:20px;">
+        <div class="card">
+          <h3>命名示例</h3>
+          <div class="ntree" style="font-size:13px;">
+            <div class="ntree-root">SVG-EN-ALL_video_rl_104_What-Moves-the-Markets_261015</div>
+            <div class="ntree-root">SVG-EN-ALL_video_long_104_What-Moves-the-Markets_261015</div>
+          </div>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">命名遵循命名公式，YouTube 有独立命名规则。</p>
+        </div>
+        <div class="card">
+          <h3>发布后</h3>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>把发布后的链接回填到 <b>Monday</b></span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>所有平台统一回填</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 命名生成器（新增）========== -->
+<div id="panel-naming" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">新增 · 互动工具</p>
+      <h2>命名 <span class="accent">生成器</span></h2>
+      <p class="lede">选好要命名的内容类型，把空填上，直接复制生成好的名字，不用再手动拼接。监管、语言、地区三个字段是联动的——先选监管，后面两个字段会自动只显示对应的可选项。</p>
+
+      <div class="rule-banner">
+        <div>
+          <b>统一规则：前三段连字符，后面各段下划线</b>
+          <p>[监管]-[语言]-[地区]_平台_类型_编号_主题_时间，例如 <code>SVG-EN-ALL_IG_static_crsl_Economic-Calendar_260914</code>。具体每个字段的含义见「完整流程」标签页里的命名规范说明表。</p>
+        </div>
+      </div>
+
+      <div class="gen-box" style="margin-top:24px;">
+        <div class="gen-field gen-type-field">
+          <label>要命名什么？</label>
+          <select id="gen-type" onchange="genRender()">
+            <optgroup label="单个素材">
+              <option value="social-static">竖屏图文 / 静态贴文</option>
+              <option value="social-video">竖屏 / 横屏视频</option>
+              <option value="campaign">广告投放素材</option>
+              <option value="email">邮件</option>
+              <option value="event">活动素材</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div id="gen-fields" class="gen-fields-grid"></div>
+
+        <div class="gen-output">
+          <div class="gen-output-label">生成的名字</div>
+          <div class="gen-output-row">
+            <code id="gen-result" class="gen-result incomplete">把每个字段填完才会生成名字</code>
+            <button id="gen-copy" class="gen-copy-btn" onclick="genCopy()" disabled="">复制</button>
+          </div>
+          <div id="gen-breakdown" class="chip-row" style="margin-top:16px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== 快速参考 ========== -->
+<div id="panel-reference" class="tab-panel">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="kicker">一页速查</p>
+      <h2>快速 <span class="accent">参考</span></h2>
+      <p class="lede">所有关键信息，一页搞定。</p>
+
+      <div class="qr-group" style="margin-bottom:32px;">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">时间节点</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>每月 1 号前</td><td>脚本 + 封面文字 + 各平台发布文案准备好</td></tr>
+              <tr><td>每月 1 号</td><td>第一次合规审核</td></tr>
+              <tr><td>合规通过后</td><td>To Record → Marcos 录制</td></tr>
+              <tr><td>录制完成</td><td>Edit + Cover → Felipe 剪辑 + 封面</td></tr>
+              <tr><td>Edson 通过后</td><td>第二次合规审核</td></tr>
+              <tr><td>第二次合规通过后</td><td>To Schedule → 发布</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="qr-group" style="margin-bottom:32px;">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">平台规则</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>Instagram</td><td>竖屏 · 同一条视频 · 发布文案单独准备 · 遵循命名公式</td></tr>
+              <tr><td>Facebook</td><td>竖屏 · 同一条视频 · 发布文案单独准备 · 遵循命名公式</td></tr>
+              <tr><td>TikTok</td><td>竖屏 · 同一条视频 · 发布文案单独准备 · 遵循命名公式</td></tr>
+              <tr><td>YouTube</td><td>横屏 · 单独视频 · 发布文案单独准备 · 独立命名规则</td></tr>
+              <tr><td>Monday 任务</td><td>一个视频一个任务</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="qr-group" style="margin-bottom:32px;">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">文件存放</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>脚本 + 封面文字 + 发布文案 + 合规记录</td><td>SharePoint（Amber 维护）</td></tr>
+              <tr><td>原始视频 + 剪辑文件</td><td>Google Drive（Marcos / Felipe 团队）</td></tr>
+              <tr><td>发布后链接</td><td>Monday</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="qr-group" style="margin-bottom:32px;">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">命名公式</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>Social Video</td><td>[REG]-[LANG]-[REGION]_video_format_number_Host-title_date</td></tr>
+              <tr><td>示例 竖屏</td><td>SVG-EN-ALL_video_rl_104_What-Moves-the-Markets_261015</td></tr>
+              <tr><td>示例 横屏</td><td>SVG-EN-ALL_video_long_104_What-Moves-the-Markets_261015</td></tr>
+              <tr><td>日期格式</td><td>YYMMDD</td></tr>
+              <tr><td>其他类型命名</td><td>见「命名生成器」标签页，支持广告素材/邮件/活动等</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="qr-group" style="margin-bottom:32px;">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">合规自查（提交前速览）</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>第一次合规前</td><td>收益承诺/喊单/晒盈利/免责声明/地区定向/文化敏感度，共 11 项</td></tr>
+              <tr><td>第二次合规前</td><td>屏幕合规文字/封面一致性/敏感画面/数据来源/字幕一致性，共 8 项</td></tr>
+              <tr><td>Risk Warning 位置（竖屏）</td><td>视频封面 + 发布文案</td></tr>
+              <tr><td>Risk Warning 位置（横屏）</td><td>画面下方固定条（全程） + 发布文案</td></tr>
+              <tr><td>详见</td><td>「合规自查清单」「合规与审核」标签页</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="qr-group">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-faint); font-weight:700; margin-bottom:14px;">常见问题</h3>
+        <div class="table-card">
+          <table class="qref-table">
+            <tbody>
+              <tr><td>脚本合规没过能先录制吗？</td><td>不能，必须合规通过后改 To Record</td></tr>
+              <tr><td>一个视频建几个 Monday 任务？</td><td>一个，各平台发布文案在任务对话里分别写</td></tr>
+              <tr><td>YouTube 是横屏还是竖屏？</td><td>横屏，单独准备，命名有独立规则</td></tr>
+              <tr><td>合规记录放哪里？</td><td>内容专用 SharePoint</td></tr>
+              <tr><td>剪辑文件放哪里？</td><td>Google Drive</td></tr>
+              <tr><td>某一环节延期了怎么办？</td><td>见「异常处理」标签页，原则是顺延下游而非跳过审核</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ZERO Markets — 社媒视频运营 SOP · v1.3 · 2026年9月</p>
+  </div>
+</footer>
+
+<script>
+  function showTab(name, userInitiated) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.toggle('active', p.id === 'panel-' + name);
+    });
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.tab === name);
+    });
+    history.replaceState(null, '', '#' + name);
+    if (userInitiated) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function initTabs() {
+    var hash = location.hash.replace('#', '');
+    var valid = ['overview', 'workflow', 'compliance', 'selfcheck', 'exceptions', 'platforms', 'naming', 'reference'];
+    showTab(valid.indexOf(hash) !== -1 ? hash : 'overview', false);
+  }
+
+  initTabs();
+</script>
+
+<script>
+  /* ---------- 命名生成器 ---------- */
+  var REG_MAP = {
+    SVG: { languages:['EN','CN'], regions:['ALL','CN'] },
+    FSC: { languages:['PT','ES'], regions:['LATAM','BRASIL'] },
+    ZMB: { languages:['PT'], regions:['BRASIL'] }
+  };
+
+  var RLR_TIPS = {
+    regulator: '这个内容按哪家监管主体的规则发布。SVG = 全球/中国，FSC = 拉美/巴西。',
+    language: '内容实际使用的语言。',
+    region: '内容面向的受众地区——选受众所在地区，不是制作团队所在地。'
+  };
+
+  function slugify(s){
+    if(!s) return '';
+    return s.trim().split(/[\s-]+/).filter(Boolean).map(function(w){
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join('-');
+  }
+  function pad2(s){
+    if(!s) return '';
+    var n = s.toString().trim();
+    return n.length===1 ? '0'+n : n;
+  }
+  function slashHyphen(s){ return (s||'').replace(/\//g,'-'); }
+  function toYYMMDD(dateStr){
+    if(!dateStr) return '';
+    var p = dateStr.split('-');
+    return p[0].slice(2) + p[1] + p[2];
+  }
+  var MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function toMonthFullYY(monthStr){
+    if(!monthStr) return '';
+    var p = monthStr.split('-');
+    var y = p[0], m = parseInt(p[1],10);
+    return MONTHS_FULL[m-1] + y.slice(2);
+  }
+  function seg(text, cls){ return { v: text || '', cls: cls }; }
+  function sep(ch){ return { v: ch, cls:'sep' }; }
+  function usep(){ return { v:'_', cls:'usep' }; }
+
+  var HOST_TIP_CN = '有出镜人就写成 主播-主题（如 Mariano-Copy-Trading）；没有出镜人，直接写主题本身，不用加这一段。';
+
+  var GEN_CONFIG = {
+    'campaign': {
+      rlr: true,
+      fields: [
+        {id:'campaignName', label:'项目名称', ph:'Fed-Week', slug:true, tip:'项目的简短内部名称。空格会自动转成连字符——只有缩写才需要手动打大写。'},
+        {id:'source', label:'来源', ph:'Meta', tip:'素材投放的平台——如 Meta、Google、TikTok。'},
+        {id:'idNum', label:'编号', ph:'1042', tip:'平台侧的广告/素材 ID（如果有的话）。'},
+        {id:'format', label:'格式', ph:'static', tip:'素材类型——如 static（静态图）、video（视频）、motion（动态图）。'},
+        {id:'size', label:'尺寸', ph:'1080x1350', tip:'成品的像素尺寸。'}
+      ],
+      build: function(v){
+        return [seg(v.regulator,'reg'), sep('-'), seg(v.language,'lang'), sep('-'), seg(v.region,'region'), usep(),
+          seg(v.campaignName,'free'), usep(), seg(v.source,'free'), usep(), seg(v.idNum,'free'), usep(), seg(v.format,'free'), usep(), seg(v.size,'free')];
+      }
+    },
+    'social-static': {
+      rlr: true,
+      fields: [
+        {id:'channel', label:'平台', select:['IG','YT'], selectLabels:{IG:'IG — Instagram', YT:'YT — YouTube'}, tip:'这条静态贴文发布在哪个平台。'},
+        {id:'format', label:'格式', ph:'crsl', tip:'静态贴文的类型——如 feed（信息流）、story（快拍）、crsl（轮播）。'},
+        {id:'hostTitle', label:'主播 / 主题', ph:'Economic-Calendar', slug:true, tip:HOST_TIP_CN},
+        {id:'date', label:'发布日期', date:true, tip:'这条贴文上线的日期，会自动转换成 YYMMDD 格式。'}
+      ],
+      build: function(v){
+        return [seg(v.regulator,'reg'), sep('-'), seg(v.language,'lang'), sep('-'), seg(v.region,'region'), usep(),
+          seg(v.channel,'free'), usep(), seg('static','free'), usep(), seg(v.format,'free'), usep(), seg(v.hostTitle,'free'), usep(), seg(toYYMMDD(v.date),'free')];
+      }
+    },
+    'social-video': {
+      rlr: true,
+      fields: [
+        {id:'channel', label:'平台', select:['IG','YT'], selectLabels:{IG:'IG — Instagram', YT:'YT — YouTube'}, tip:'这条视频发布在哪个平台。'},
+        {id:'format', label:'格式', ph:'rl', tip:'视频类型——如 rl（竖屏短视频）、long（横屏长视频）。'},
+        {id:'number', label:'编号', ph:'01', pad2:true, tip:'视频的序号——只有视频类内容才带编号。'},
+        {id:'hostTitle', label:'主播 / 主题', ph:'Mariano-Copy-Trading', slug:true, tip:HOST_TIP_CN},
+        {id:'date', label:'发布日期', date:true, tip:'这条视频上线的日期，会自动转换成 YYMMDD 格式。'}
+      ],
+      build: function(v){
+        return [seg(v.regulator,'reg'), sep('-'), seg(v.language,'lang'), sep('-'), seg(v.region,'region'), usep(),
+          seg(v.channel,'free'), usep(), seg('video','free'), usep(), seg(v.format,'free'), usep(), seg(v.number,'free'), usep(), seg(v.hostTitle,'free'), usep(), seg(toYYMMDD(v.date),'free')];
+      }
+    },
+    'email': {
+      rlr: true,
+      fields: [
+        {id:'title', label:'项目标题', ph:'Weekly-Market-Roadmap', slug:true, tip:'最终确认的项目/沟通标题。'},
+        {id:'date', label:'发送日期', date:true, tip:'计划发送日期，或约定的项目日期，会自动转换成 YYMMDD 格式。'}
+      ],
+      build: function(v){
+        return [seg(v.regulator,'reg'), sep('-'), seg(v.language,'lang'), sep('-'), seg(v.region,'region'), usep(),
+          seg('MKT','free'), usep(), seg(v.title,'free'), usep(), seg(toYYMMDD(v.date),'free')];
+      }
+    },
+    'event': {
+      rlr: true,
+      fields: [
+        {id:'eventName', label:'活动名称', ph:'Copy-Trading-Webinar', slug:true, tip:'活动的名称，空格会自动转成连字符。'},
+        {id:'source', label:'来源', ph:'Meta', tip:'素材投放的平台——如 Meta、Google、TikTok。'},
+        {id:'idNum', label:'编号', ph:'1001', tip:'平台侧的广告/素材 ID（如果有的话）。'},
+        {id:'formatMaterial', label:'格式 / 材质', ph:'static-feed', slashHyphen:true, tip:'素材类型和位置，斜杠会自动转换成连字符。'},
+        {id:'size', label:'尺寸', ph:'1080x1350', tip:'成品的像素尺寸。'}
+      ],
+      build: function(v){
+        return [seg(v.regulator,'reg'), sep('-'), seg(v.language,'lang'), sep('-'), seg(v.region,'region'), usep(),
+          seg(v.eventName,'free'), usep(), seg(v.source,'free'), usep(), seg(v.idNum,'free'), usep(), seg(v.formatMaterial,'free'), usep(), seg(v.size,'free')];
+      }
+    }
+  };
+
+  function tipHTML(text){
+    if(!text) return '';
+    return '<span class="tip" tabindex="0" role="img" aria-label="说明">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="7.8" r="1.1" fill="currentColor"/></svg>' +
+      '<span class="tip-bubble">' + text + '</span></span>';
+  }
+
+  function rlrHTML(){
+    return '<div class="gen-field"><label>监管'+tipHTML(RLR_TIPS.regulator)+'</label><select id="gen-regulator" onchange="genRlrChange()"><option value="SVG">SVG</option><option value="FSC">FSC</option><option value="ZMB">ZMB</option></select></div>' +
+      '<div class="gen-field"><label>语言'+tipHTML(RLR_TIPS.language)+'</label><select id="gen-language" onchange="genUpdate()"></select></div>' +
+      '<div class="gen-field"><label>地区'+tipHTML(RLR_TIPS.region)+'</label><select id="gen-region" onchange="genUpdate()"></select></div>';
+  }
+
+  function fieldHTML(f){
+    var labelHtml = f.label + tipHTML(f.tip);
+    if(f.select){
+      var opts = f.select.map(function(o){
+        var label = (f.selectLabels && f.selectLabels[o]) || o;
+        return '<option value="'+o+'">'+label+'</option>';
+      }).join('');
+      return '<div class="gen-field"><label>'+labelHtml+'</label><select id="gf-'+f.id+'" onchange="genUpdate()">'+opts+'</select></div>';
+    }
+    if(f.date){
+      return '<div class="gen-field"><label>'+labelHtml+'</label><input type="text" id="gf-'+f.id+'" lang="en" placeholder="YYYY-MM-DD" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" oninput="genUpdate()"></div>';
+    }
+    if(f.month){
+      return '<div class="gen-field"><label>'+labelHtml+'</label><input type="text" id="gf-'+f.id+'" lang="en" placeholder="YYYY-MM" pattern="[0-9]{4}-[0-9]{2}" oninput="genUpdate()"></div>';
+    }
+    return '<div class="gen-field"><label>'+labelHtml+'</label><input type="text" id="gf-'+f.id+'" placeholder="'+(f.ph||'')+'" value="'+(f.ph||'')+'" oninput="genUpdate()"></div>';
+  }
+
+  function genRlrChange(){
+    var reg = document.getElementById('gen-regulator').value;
+    var langSel = document.getElementById('gen-language');
+    var regionSel = document.getElementById('gen-region');
+    langSel.innerHTML = REG_MAP[reg].languages.map(function(l){ return '<option value="'+l+'">'+l+'</option>'; }).join('');
+    regionSel.innerHTML = REG_MAP[reg].regions.map(function(r){ return '<option value="'+r+'">'+r+'</option>'; }).join('');
+    genUpdate();
+  }
+
+  function genRender(){
+    var type = document.getElementById('gen-type').value;
+    var cfg = GEN_CONFIG[type];
+    var html = '';
+    if(cfg.rlr) html += rlrHTML();
+    html += cfg.fields.map(fieldHTML).join('');
+    document.getElementById('gen-fields').innerHTML = html;
+    if(cfg.rlr){ genRlrChange(); }
+    genUpdate();
+  }
+
+  function collectValues(cfg){
+    var v = {};
+    if(cfg.rlr){
+      v.regulator = document.getElementById('gen-regulator').value;
+      v.language = document.getElementById('gen-language').value;
+      v.region = document.getElementById('gen-region').value;
+    }
+    cfg.fields.forEach(function(f){
+      var el = document.getElementById('gf-'+f.id);
+      var val = el ? el.value : '';
+      if(f.slug) val = slugify(val);
+      if(f.pad2) val = pad2(val);
+      if(f.slashHyphen) val = slashHyphen(val);
+      v[f.id] = val;
+    });
+    return v;
+  }
+
+  function genUpdate(){
+    var type = document.getElementById('gen-type').value;
+    var cfg = GEN_CONFIG[type];
+    var v = collectValues(cfg);
+    var segments = cfg.build(v);
+    var missing = segments.some(function(s){
+      return (s.cls==='reg'||s.cls==='lang'||s.cls==='region'||s.cls==='free') && !s.v;
+    });
+    var name = segments.map(function(s){ return s.v; }).join('');
+    var resultEl = document.getElementById('gen-result');
+    resultEl.textContent = missing ? '把每个字段填完才会生成名字' : name;
+    resultEl.classList.toggle('incomplete', missing);
+    document.getElementById('gen-copy').disabled = missing;
+
+    var chipMap = {reg:'chip chip-reg', lang:'chip chip-lang', region:'chip chip-region', free:'chip chip-free'};
+    var bd = segments.map(function(s){
+      if(s.cls==='sep') return '<span class="sep">'+s.v+'</span>';
+      if(s.cls==='usep') return '<span class="sep under">'+s.v+'</span>';
+      var cls = chipMap[s.cls] || 'chip chip-free';
+      return '<span class="'+cls+'">'+(s.v || '\u2026')+'</span>';
+    }).join('');
+    document.getElementById('gen-breakdown').innerHTML = bd;
+  }
+
+  function genCopy(){
+    var text = document.getElementById('gen-result').textContent;
+    if(!text || text.indexOf('把每个字段') !== -1) return;
+    var btn = document.getElementById('gen-copy');
+    var old = btn.textContent;
+    function done(){ btn.textContent = '已复制！'; setTimeout(function(){ btn.textContent = old; }, 1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+
+  genRender();
+</script>
+
+
+</body></html>
