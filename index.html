@@ -312,6 +312,12 @@
       gap: 20px;
     }
 
+    .subgrid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
     .flow-scroll {
       overflow-x: auto;
       padding-bottom: 12px;
@@ -861,6 +867,7 @@
       h1 { font-size: 32px; }
       h2 { font-size: 26px; }
       .subgrid { grid-template-columns: 1fr; }
+      .subgrid-3 { grid-template-columns: 1fr; }
       .date-compare { grid-template-columns: 1fr; }
       .week-grid { grid-template-columns: repeat(2, 1fr); }
       .tabbar { padding: 0 20px 14px; }
@@ -917,7 +924,7 @@
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 5h14M5 12h9M5 19h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><path d="M17 15l2.5 2.5L17 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       命名生成器
     </button>
-    <button class="tab-btn" data-tab="reference" onclick="showTab('reference', true)">
+    <button class="tab-btn active" data-tab="reference" onclick="showTab('reference', true)">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 016.5 3H19v16.5a1.5 1.5 0 01-1.5 1.5H6.5A2.5 2.5 0 014 18.5v-13z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8 8h8M8 11.5h8M8 15h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
       快速参考
     </button>
@@ -969,12 +976,13 @@
           <thead><tr><th>时间</th><th>必须完成</th></tr></thead>
           <tbody>
             <tr><td>每月 1 号前</td><td><b>下月脚本 + 封面文字 + 各平台发布文案准备好</b></td></tr>
-            <tr><td>每月 1 号</td><td>提交第一次合规审核</td></tr>
-            <tr><td>合规通过后</td><td>Monday 状态改 <b>To Record</b>，Marcos 开始录制</td></tr>
+            <tr><td>每月 1 号</td><td>提交 Script 审核（Compliance Team）</td></tr>
+            <tr><td>Script 审核通过后</td><td>Marcos 开始录制</td></tr>
             <tr><td>录制完成</td><td>状态改 <b>Edit + Cover</b></td></tr>
-            <tr><td>剪辑 + 封面完成</td><td>Edson Figma 审核</td></tr>
-            <tr><td>Edson 通过后</td><td>第二次合规审核</td></tr>
-            <tr><td>第二次合规通过后</td><td>Monday 改 <b>To Schedule</b></td></tr>
+            <tr><td>剪辑 + 封面完成</td><td>Edson Figma 审核（Approval）</td></tr>
+            <tr><td>Edson 通过后</td><td>Compliance Approval（Compliance Team 复核脚本 + 封面侵权风险）</td></tr>
+            <tr><td>Compliance Approval 通过后</td><td>Final Approval（Nikki 审核最终成品，暂不设时限）</td></tr>
+            <tr><td>Final Approval 通过后</td><td>Monday 改 <b>To Schedule</b></td></tr>
             <tr><td>排期发布</td><td>IG / FB / TikTok / YouTube</td></tr>
           </tbody>
         </table>
@@ -997,17 +1005,19 @@
         <div class="flow">
           <div class="flow-step"><div class="num">STEP 1</div><div class="t">脚本准备</div><div class="s">每月 1 号前 · 脚本 + 封面文字 + 发布文案</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <div class="flow-step"><div class="num">STEP 2</div><div class="t">第一次合规</div><div class="s">脚本 + 封面文字 + 各平台发布文案</div></div>
+          <div class="flow-step"><div class="num">STEP 2</div><div class="t">Script 审核</div><div class="s">Compliance Team 审核脚本 + 封面文字 + 各平台发布文案</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <div class="flow-step"><div class="num">STEP 3</div><div class="t">To Record</div><div class="s">Marcos 录制</div></div>
+          <div class="flow-step"><div class="num">STEP 3</div><div class="t">Recording</div><div class="s">Marcos 录制</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
           <div class="flow-step"><div class="num">STEP 4</div><div class="t">Edit + Cover</div><div class="s">Felipe 团队剪辑 + 封面</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
           <div class="flow-step"><div class="num">STEP 5</div><div class="t">Approval</div><div class="s">Edson Figma 审核（封面 + 创意）</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <div class="flow-step"><div class="num">STEP 6</div><div class="t">第二次合规</div><div class="s">封面 + 画面合规</div></div>
+          <div class="flow-step"><div class="num">STEP 6</div><div class="t">Compliance Approval</div><div class="s">Compliance Team 复核脚本 + 封面侵权风险</div></div>
           <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <div class="flow-step"><div class="num">STEP 7</div><div class="t">发布</div><div class="s">IG / FB / TikTok / YouTube</div></div>
+          <div class="flow-step"><div class="num">STEP 7</div><div class="t">Final Approval</div><div class="s">Nikki 审核最终成品，暂不设时限</div></div>
+          <div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="flow-step"><div class="num">STEP 8</div><div class="t">发布</div><div class="s">IG / FB / TikTok / YouTube</div></div>
         </div>
       </div>
     </div>
@@ -1031,7 +1041,7 @@
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>准备封面文字 / 封面文案</span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>准备发布文案：IG / FB / TikTok / YouTube 分开</span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>上传到内容专用 SharePoint</span></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提交第一次合规审核</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提交 Script 审核</span></li>
           </ul>
         </div>
         <div class="card">
@@ -1090,20 +1100,20 @@
   <section class="section">
     <div class="wrap">
       <p class="kicker">阶段 2</p>
-      <h2>第一次合规审核 <span class="accent">（脚本 + 封面文字 + 发布文案）</span></h2>
-      <p class="lede">负责人：Compliance。跟进：Amber。合规通过后，Monday 状态改为 To Record。</p>
+      <h2>Script 审核 <span class="accent">（脚本 + 封面文字 + 发布文案）</span></h2>
+      <p class="lede">负责人：Compliance Team。跟进：Amber。审核通过后，Monday 状态直接改为 Recording，Marcos 开始录制。</p>
       <div class="card">
         <ul class="checklist">
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Amber 提交脚本 + 封面文字 + 各平台发布文案</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Compliance 审核</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Compliance Team 审核</span></li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>有问题 → Amber 修改 → 再提交</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>没问题 → Monday 状态改 <b>To Record</b></span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>没问题 → Monday 状态改 <b>Recording</b></span></li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>脚本同步上传到 Google Drive，供剪辑团队使用</span></li>
         </ul>
       </div>
       <div class="callout warn" style="margin-top:20px;">
         <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E5897A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E5897A" stroke-width="1.6"></path></svg>
-        <div><b>合规不通过，不进入录制</b></div>
+        <div><b>Script 审核不通过，不进入录制</b></div>
       </div>
     </div>
   </section>
@@ -1117,7 +1127,7 @@
         <div class="card">
           <h3>录制 — Marcos Praça</h3>
           <ul class="checklist">
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>确认 Monday 状态是 To Record</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>确认 Monday 状态是 Recording</span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>开始录制（竖屏 + 横屏）</span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>录制完成后状态改为 <b>Edit + Cover</b></span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>原始视频上传到 Google Drive</span></li>
@@ -1138,7 +1148,7 @@
 
   <section class="section">
     <div class="wrap">
-      <p class="kicker">阶段 5–7</p>
+      <p class="kicker">阶段 5–8</p>
       <h2>审核 → 发布</h2>
       <p class="lede">从首轮审核到发布，每一步都有明确负责人和工具。</p>
 
@@ -1150,9 +1160,15 @@
           </div>
         </div>
         <div class="decision-card">
-          <div class="decision-label">第二次合规审核</div>
+          <div class="decision-label">Compliance Approval</div>
           <div class="mini-flow">
-            <span class="mini-chip">封面 + 画面</span><span class="mini-arrow">→</span><span class="mini-chip">Compliance</span><span class="mini-arrow">→</span><span class="mini-chip">通过后进 To Schedule</span>
+            <span class="mini-chip">脚本 + 封面</span><span class="mini-arrow">→</span><span class="mini-chip">Compliance Team</span><span class="mini-arrow">→</span><span class="mini-chip">复核脚本一致性 + 封面侵权风险</span>
+          </div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-label">Final Approval</div>
+          <div class="mini-flow">
+            <span class="mini-chip">最终成品</span><span class="mini-arrow">→</span><span class="mini-chip">Nikki</span><span class="mini-arrow">→</span><span class="mini-chip">通过后进 To Schedule</span>
           </div>
         </div>
         <div class="decision-card">
@@ -1172,32 +1188,43 @@
 
   <section class="section">
     <div class="wrap">
-      <p class="kicker">两次合规审核</p>
+      <p class="kicker">三段审核</p>
       <h2>合规前置 <span class="accent">审核</span></h2>
-      <p class="lede">第一次合规审脚本 + 封面文字 + 发布文案，第二次合规审封面 + 画面，通过后即可进入发布排期。</p>
+      <p class="lede">Script 审核脚本 + 封面文字 + 发布文案，Compliance Approval 复核脚本一致性 + 封面侵权风险，Final Approval 是发布前最后一道关卡，审最终成品。</p>
 
-      <div class="subgrid">
+      <div class="subgrid-3">
         <div class="card">
-          <h3>第一次合规审核</h3>
+          <h3>Script 审核</h3>
           <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">每月 1 号前提交，通过后才能进入录制。</p>
           <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:14px;">
-            脚本 + 封面文字 + IG 发布文案 + FB 发布文案 + TK 发布文案 + YT 发布文案
+            脚本 + 封面文字 + IG/FB/TK/YT 发布文案
           </div>
           <ul class="checklist">
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>提交人：Amber</span></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>审核人：Compliance</span></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>存放：内容专用 SharePoint</span></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后：Monday 改 To Record</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>审核人：Compliance Team</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后：Monday 改 Recording</span></li>
           </ul>
         </div>
         <div class="card">
-          <h3>第二次合规审核</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">Edson Figma 审核通过后提交，主要看画面有没有问题。</p>
+          <h3>Compliance Approval</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">Edson Figma 审核通过后提交，范围比之前更窄，只看两件事。</p>
           <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:14px;">
-            封面 + 画面
+            脚本一致性 + 封面侵权风险
           </div>
           <ul class="checklist">
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>画面问题 → Felipe 团队改</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>审核人：Compliance Team</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>问题 → Felipe 团队改</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后 → 进入 Final Approval</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Final Approval</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin:0 0 14px;">发布前最后一步，审的是完整成品，暂不设审核时限。</p>
+          <div class="formula-pattern" style="font-family:ui-monospace, monospace; font-size:12.5px; color:var(--text-muted); background:var(--bg-elev); border:1px solid var(--border-soft); border-radius:8px; padding:12px 14px; word-break:break-all; margin-bottom:14px;">
+            最终成品（全平台版本）
+          </div>
+          <ul class="checklist">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>审核人：Nikki</span></li>
             <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#4ADE94" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>通过后 → Monday 改 To Schedule，进入发布排期</span></li>
           </ul>
         </div>
@@ -1205,11 +1232,10 @@
 
       <div class="rule-banner" style="margin-top:24px;">
         <div>
-          <b>第二次合规在 Edson Figma 审核之后</b>
-          <p>顺序：剪辑 + 封面 → Edson Figma（封面 + 创意）→ 第二次合规（封面 + 画面）→ To Schedule。</p>
+          <b>Final Approval 是发布前的最后一道关卡</b>
+          <p>顺序：剪辑 + 封面 → Edson Figma（封面 + 创意）→ Compliance Approval（脚本一致性 + 封面侵权风险）→ Final Approval（Nikki 审最终成品）→ To Schedule。</p>
         </div>
       </div>
-    </div>
   </section>
 
   <section class="section">
@@ -1243,11 +1269,13 @@
         <table>
           <thead><tr><th>状态</th><th>含义</th><th>谁负责</th></tr></thead>
           <tbody>
+            <tr><td><b>Script</b></td><td>脚本 + 封面文字 + 发布文案审核中</td><td>Compliance Team</td></tr>
             <tr><td><b>Recording</b></td><td>录制中</td><td>Marcos</td></tr>
             <tr><td><b>Edit + Cover</b></td><td>剪辑 + 封面</td><td>Felipe 团队</td></tr>
             <tr><td><b>Approval</b></td><td>Edson Figma 审核（封面 + 创意）</td><td>Edson</td></tr>
-            <tr><td><b>Final Approval</b></td><td>最终审核</td><td>Nikki</td></tr>
-            <tr><td><b>To Schedule</b></td><td>第二次合规通过，等排期</td><td>Amber</td></tr>
+            <tr><td><b>Compliance Approval</b></td><td>Compliance Team 复核脚本（画面文字/字幕与已批准版本是否一致）+ 封面是否有侵权相关风险</td><td>Compliance Team</td></tr>
+            <tr><td><b>Final Approval</b></td><td>审核最终成品，发布前最后一步，目前暂不设时限</td><td>Nikki</td></tr>
+            <tr><td><b>To Schedule</b></td><td>全部通过审核，可排期发布</td><td>Amber</td></tr>
             <tr><td><b>Done</b></td><td>已发布</td><td>Amber</td></tr>
           </tbody>
         </table>
@@ -1264,16 +1292,16 @@
     <div class="wrap">
       <p class="kicker">新增 · 提交前自查</p>
       <h2>合规自查清单</h2>
-      <p class="lede">分两组：提交第一次合规前自查（脚本+封面文字+发布文案），提交第二次合规前自查（封面+画面）。目的是让 Amber/Felipe 团队自己先筛一遍，减少来回打回的次数，不代替 Compliance 的正式审核。</p>
+      <p class="lede">分三组，对应三段审核：Script 审核前自查（脚本+封面文字+发布文案）、Compliance Approval 前自查（脚本一致性+封面侵权风险）、Final Approval 前自查（供 Amber/Felipe 提交给 Nikki 前自检）。目的是让团队自己先筛一遍，减少来回打回的次数，不代替任何一级审核的正式判断。</p>
 
       <div class="rule-banner">
         <div>
           <b>自查清单不是审核标准本身</b>
-          <p>这是"提交前先过一遍"的最低限度筛查，最终是否通过仍以 Compliance 的判断为准；如某一项拿不准，直接标注"不确定"提交，让 Compliance 重点复核，不要自己下结论。</p>
+          <p>这是"提交前先过一遍"的最低限度筛查，最终是否通过仍以对应审核人的判断为准；如某一项拿不准，直接标注"不确定"提交，让审核人重点复核，不要自己下结论。</p>
         </div>
       </div>
 
-      <h3 style="margin-top:32px;">一、第一次合规前自查（脚本 + 封面文字 + 发布文案）</h3>
+      <h3 style="margin-top:32px;">一、Script 审核前自查（脚本 + 封面文字 + 发布文案）</h3>
       <div class="table-card">
         <table>
           <thead><tr><th style="width:6%;">#</th><th>检查项</th><th style="width:18%;">结果</th></tr></thead>
@@ -1293,26 +1321,41 @@
         </table>
       </div>
 
-      <h3 style="margin-top:36px;">二、第二次合规前自查（封面 + 画面，Edson Figma 通过后提交前）</h3>
+      <h3 style="margin-top:36px;">二、Compliance Approval 前自查（脚本一致性 + 封面侵权风险，Edson 通过后提交前）</h3>
       <div class="table-card">
         <table>
           <thead><tr><th style="width:6%;">#</th><th>检查项</th><th style="width:18%;">结果</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>【竖屏】封面上的 Risk Warning 文字是否清晰可读，且和已通过合规的版本完全一致（剪辑/设计过程中有没有被临时改动）</td><td>□是 □否 □不适用</td></tr>
-            <tr><td>1-1</td><td>【横屏】画面下方固定显示的 Risk Warning 条是否<b>从头到尾贯穿播放</b>（没有中途消失/被其他字幕遮挡），文字大小和对比度清晰可读</td><td>□是 □否 □不适用</td></tr>
-            <tr><td>2</td><td>封面上除 Risk Warning 外的其他文字/数字是否和已通过合规的封面文字完全一致</td><td>□是 □否</td></tr>
-            <tr><td>3</td><td>画面中是否出现真实账户余额、真实盈亏走势图、真实客户信息等敏感画面</td><td>□是 □否</td></tr>
-            <tr><td>4</td><td>画面中出现的图表/数据是否有来源标注（避免被认为是编造数据）</td><td>□是 □否</td></tr>
-            <tr><td>5</td><td>字幕内容是否与已通过的脚本/文案逐字一致（剪辑阶段是否有新增口播或改写）</td><td>□是 □否</td></tr>
-            <tr><td>6</td><td>品牌视觉规范（Logo、配色、字体）是否符合最新版本</td><td>□是 □否</td></tr>
-            <tr><td>7</td><td>是否有画面元素可能被解读为暗示特定地区/受限市场定向</td><td>□是 □否</td></tr>
+            <tr><td>1</td><td>画面上出现的文字/字幕（含横屏画面下方固定显示的 Risk Warning 条）是否与已批准脚本终稿逐字一致，剪辑阶段有没有新增口播或改写</td><td>□是 □否</td></tr>
+            <tr><td>2</td><td>【竖屏】封面上的文字（含 Risk Warning）是否和已通过合规的版本完全一致，没有被临时改动</td><td>□是 □否 □不适用</td></tr>
+            <tr><td>3</td><td>封面素材（图片、图标、背景、字体）是否有未经授权使用的第三方版权或商标内容（如竞品 logo、影视/网络截图、未购买授权的付费素材、他人原创设计等）</td><td>□是 □否</td></tr>
+            <tr><td>4</td><td>封面上使用的人物形象、品牌联名元素是否已获得对应授权，或确认属于团队自有素材</td><td>□是 □否 □不涉及</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="callout warn" style="margin-top:28px;">
+      <h3 style="margin-top:36px;">三、Final Approval 前自查（供 Amber / Felipe 提交给 Nikki 前自检）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:6%;">#</th><th>检查项</th><th style="width:18%;">结果</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>画面中是否出现真实账户余额、真实盈亏走势图、真实客户信息等敏感画面</td><td>□是 □否</td></tr>
+            <tr><td>2</td><td>画面中出现的图表/数据是否有来源标注（避免被认为是编造数据）</td><td>□是 □否</td></tr>
+            <tr><td>3</td><td>品牌视觉规范（Logo、配色、字体）是否符合最新版本</td><td>□是 □否</td></tr>
+            <tr><td>4</td><td>是否有画面元素可能被解读为暗示特定地区/受限市场定向</td><td>□是 □否</td></tr>
+            <tr><td>5</td><td>是否确认是最终成片（没有占位字幕、水印、未完成的剪辑段落）</td><td>□是 □否</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout pending" style="margin-top:20px;">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E0B15A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E0B15A" stroke-width="1.6"></path></svg>
+        <div><b>第三组是团队自检清单，不代表 Nikki 的正式审核标准</b><p>Nikki 具体按什么维度审核最终成品，目前还没有正式确认，这份清单是把此前"第二次合规"里没被 Compliance Approval 接手的部分先归到这里，方便提交前团队自己把关。等 Nikki 的审核标准明确后，回来更新这份清单。</p></div>
+      </div>
+
+      <div class="callout warn" style="margin-top:20px;">
         <svg class="callout-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#E5897A" stroke-width="2" stroke-linecap="round"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 001.4 2.4h16.2a1.6 1.6 0 001.4-2.4L13.7 3.9a1.6 1.6 0 00-2.8 0z" stroke="#E5897A" stroke-width="1.6"></path></svg>
-        <div><b>任意一项为"是"（除第9、10项"不涉及"外）</b><p>需要在提交合规时主动标注该项，并简要说明原因，方便 Compliance 优先核查，而不是留给他们自己发现。</p></div>
+        <div><b>任意一项为"是"（除标注"不涉及"的选项外）</b><p>需要在提交时主动标注该项，并简要说明原因，方便审核人优先核查，而不是留给他们自己发现。</p></div>
       </div>
     </div>
   </section>
@@ -1328,14 +1371,14 @@
       <h2>异常处理表</h2>
       <p class="lede">按流程节点顺序列出常见异常情况：谁负责判断、怎么处理、下游怎么联动。目标是任何一环卡住时，团队都清楚"找谁、怎么办"，而不是临时讨论。</p>
 
-      <h3 style="margin-top:8px;">1 · 第一次合规被打回（脚本 / 封面文字 / 发布文案）</h3>
+      <h3 style="margin-top:8px;">1 · Script 审核被打回（脚本 / 封面文字 / 发布文案）</h3>
       <div class="table-card">
         <table>
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
-            <tr><td>措辞/表达类问题（禁用词、免责声明位置等，可直接修改）</td><td>Compliance 出具具体打回意见（标注是哪一部分+问题类型）→ Amber 24 小时内修改重新提交，不影响 Monday 状态（仍停留在 Script + Compliance）</td><td>Amber</td></tr>
-            <tr><td>方向性问题（选题/角度本身有合规风险，非措辞可修复）</td><td>暂停该条内容进入录制排期，Amber 和 Compliance 另约时间讨论是否可修改角度重新提交，或整体替换选题</td><td>Amber + Compliance</td></tr>
-            <tr><td>同一条内容连续 2 次被打回</td><td>暂停该条，升级为 Amber 与 Compliance 的专项沟通，确认是否继续修改还是直接替换，避免反复打回拖延当月排期</td><td>Amber（发起）</td></tr>
+            <tr><td>措辞/表达类问题（禁用词、免责声明位置等，可直接修改）</td><td>Compliance Team 出具具体打回意见（标注是哪一部分+问题类型）→ Amber 24 小时内修改重新提交，不影响 Monday 状态（仍停留在 Script）</td><td>Amber</td></tr>
+            <tr><td>方向性问题（选题/角度本身有合规风险，非措辞可修复）</td><td>暂停该条内容进入录制排期，Amber 和 Compliance Team 另约时间讨论是否可修改角度重新提交，或整体替换选题</td><td>Amber + Compliance Team</td></tr>
+            <tr><td>同一条内容连续 2 次被打回</td><td>暂停该条，升级为 Amber 与 Compliance Team 的专项沟通，确认是否继续修改还是直接替换，避免反复打回拖延当月排期</td><td>Amber（发起）</td></tr>
           </tbody>
         </table>
       </div>
@@ -1345,9 +1388,9 @@
         <table>
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
-            <tr><td>延期 1-3 天，且不影响当月发布排期</td><td>顺延录制日期，Monday 状态保持 To Record 不变，同步通知 Felipe 团队顺延接收原始素材的时间</td><td>Marcos → 通知 Felipe</td></tr>
+            <tr><td>延期 1-3 天，且不影响当月发布排期</td><td>顺延录制日期，Monday 状态保持 Recording 不变，同步通知 Felipe 团队顺延接收原始素材的时间</td><td>Marcos → 通知 Felipe</td></tr>
             <tr><td>延期超过 3 天，可能影响本月发布排期</td><td>立即同步 Amber，评估是否需要调整发布排期，或临时启用已有存量素材顶替当期排期空缺</td><td>Marcos → Amber</td></tr>
-            <tr><td>下游连锁影响</td><td>Felipe 团队、Edson、Compliance（第二次）按延期天数整体顺延接收时间，不压缩各自的处理窗口</td><td>Amber 统一同步</td></tr>
+            <tr><td>下游连锁影响</td><td>Felipe 团队、Edson、Compliance Team（Compliance Approval）、Nikki（Final Approval）按延期天数整体顺延接收时间，不压缩各自的处理窗口</td><td>Amber 统一同步</td></tr>
           </tbody>
         </table>
       </div>
@@ -1358,7 +1401,7 @@
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
             <tr><td>延期但距发布排期还有余量</td><td>Felipe 团队限时补做（建议 24-48 小时内），Monday 状态保持 Edit + Cover，不进入下一步</td><td>Felipe 团队</td></tr>
-            <tr><td>延期且逼近发布排期</td><td>同步 Amber，评估是否顺延该条发布日期，不建议为赶排期跳过 Edson 审核或合规审核</td><td>Felipe 团队 → Amber</td></tr>
+            <tr><td>延期且逼近发布排期</td><td>同步 Amber，评估是否顺延该条发布日期，不建议为赶排期跳过 Edson 审核、Compliance Approval 或 Final Approval 中的任何一环</td><td>Felipe 团队 → Amber</td></tr>
           </tbody>
         </table>
       </div>
@@ -1369,30 +1412,43 @@
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
             <tr><td>封面/创意需要调整（常规情况）</td><td>Edson 出具具体修改意见 → Felipe 团队（Victor / Felipe Santos）修改 → 重新提交 Figma 审核，Monday 状态保持 Edit + Cover 或 Approval，视流程习惯而定</td><td>Felipe 团队</td></tr>
-            <tr><td>修改后画面内容发生变化（不只是排版调整）</td><td>需要重新走一遍第二次合规自查清单（本 SOP「合规自查清单」第二组），避免改动后引入新的合规问题</td><td>Felipe 团队 → Amber 确认</td></tr>
+            <tr><td>修改后画面内容发生变化（不只是排版调整）</td><td>需要重新走一遍 Compliance Approval 自查清单（本 SOP「合规自查清单」第二组），避免改动后引入新的合规或侵权问题</td><td>Felipe 团队 → Amber 确认</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3 style="margin-top:32px;">5 · 第二次合规不通过（封面 + 画面）</h3>
+      <h3 style="margin-top:32px;">5 · Compliance Approval 不通过（脚本一致性 / 封面侵权风险）</h3>
       <div class="table-card">
         <table>
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
-            <tr><td>画面/封面本身的问题（可修改）</td><td>Compliance 出具具体意见 → Felipe 团队修改 → 视改动范围决定是否需要重新过 Edson 审核（大改需要，小改可跳过视团队约定）→ 重新提交第二次合规</td><td>Felipe 团队</td></tr>
-            <tr><td>连续 2 次被第二次合规打回</td><td>升级为 Amber + Compliance + Felipe 三方沟通，排查是不是脚本阶段的合规判断和画面呈现之间有理解偏差，避免同类问题反复出现</td><td>Amber（发起）</td></tr>
+            <tr><td>脚本/字幕与已批准版本不一致（剪辑阶段新增或改写了口播）</td><td>Compliance Team 出具具体意见（标注不一致的时间点）→ Felipe 团队按已批准脚本改回，或提交新增内容单独走一遍 Script 审核自查 → 重新提交 Compliance Approval</td><td>Felipe 团队</td></tr>
+            <tr><td>封面素材存在侵权风险（未授权图片/字体/第三方 logo 等）</td><td>Compliance Team 出具具体意见 → Felipe 团队/设计更换为已授权素材 → 视改动范围决定是否需要重新过 Edson 审核 → 重新提交 Compliance Approval</td><td>Felipe 团队</td></tr>
+            <tr><td>连续 2 次被 Compliance Approval 打回</td><td>升级为 Amber + Compliance Team + Felipe 三方沟通，排查是不是脚本阶段的判断和实际呈现之间有理解偏差，避免同类问题反复出现</td><td>Amber（发起）</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3 style="margin-top:32px;">6 · 发布延误 / 链接未及时回填 Monday</h3>
+      <h3 style="margin-top:32px;">6 · Final Approval 不通过（Nikki 审核最终成品）</h3>
+      <div class="table-card">
+        <table>
+          <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
+          <tbody>
+            <tr><td>Nikki 提出修改意见（常规情况）</td><td>Nikki 反馈具体问题 → Felipe 团队 / Amber 按意见修改 → 重新提交 Final Approval</td><td>Felipe 团队 / Amber</td></tr>
+            <tr><td>迟迟没有收到 Nikki 的审核结果</td><td>目前这一步暂不设时限，没有标准的"超时"判定；建议 Amber 主动跟进而不是被动等待，避免无声延误拖累发布排期</td><td>Amber 主动跟进</td></tr>
+            <tr><td>同一条内容连续多次被打回</td><td>建议 Amber 直接和 Nikki 约时间沟通，明确具体标准是什么，而不是反复靠猜测修改再提交</td><td>Amber（发起）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:32px;">7 · 发布延误 / 链接未及时回填 Monday</h3>
       <div class="table-card">
         <table>
           <thead><tr><th style="width:26%;">情形</th><th>处理流程</th><th style="width:18%;">负责人</th></tr></thead>
           <tbody>
             <tr><td>某平台因平台方原因发布失败/延迟（如审核中、限流）</td><td>Amber 记录实际发布时间，其余平台按原排期正常发布，不因一个平台延迟而整体顺延</td><td>Amber</td></tr>
             <tr><td>发布后链接未及时回填 Monday</td><td>发布当天内完成回填；超过 24 小时未回填，由 Amber 自查全部当周待发内容的回填状态，避免遗漏</td><td>Amber</td></tr>
-            <tr><td>发布后发现内容与已通过合规版本不一致（如临时被替换成未审核过的版本）</td><td>立即下架/设为私享，同步 Compliance 确认问题范围，按下架流程处理，不等下一次常规检查</td><td>Amber → Compliance</td></tr>
+            <tr><td>发布后发现内容与已通过合规版本不一致（如临时被替换成未审核过的版本）</td><td>立即下架/设为私享，同步 Compliance Team 确认问题范围，按下架流程处理，不等下一次常规检查</td><td>Amber → Compliance Team</td></tr>
           </tbody>
         </table>
       </div>
@@ -1400,7 +1456,7 @@
       <div class="rule-banner" style="margin-top:32px;">
         <div>
           <b>总原则：宁可顺延，不跳过审核环节</b>
-          <p>无论卡在哪一步，处理方式都是"顺延下游时间"而不是"压缩或跳过后面的审核步骤"来赶排期。</p>
+          <p>无论卡在哪一步，处理方式都是"顺延下游时间"而不是"压缩或跳过后面的审核步骤"来赶排期；唯一的例外是 Final Approval 目前没有时限约定（见第 6 项），这是流程里现阶段仍待补的一块。</p>
         </div>
       </div>
     </div>
@@ -1499,7 +1555,7 @@
           </select>
         </div>
 
-        <div id="gen-fields" class="gen-fields-grid"></div>
+        <div id="gen-fields" class="gen-fields-grid"><div class="gen-field"><label>监管<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">这个内容按哪家监管主体的规则发布。SVG = 全球/中国，FSC = 拉美/巴西。</span></span></label><select id="gen-regulator" onchange="genRlrChange()"><option value="SVG">SVG</option><option value="FSC">FSC</option><option value="ZMB">ZMB</option></select></div><div class="gen-field"><label>语言<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">内容实际使用的语言。</span></span></label><select id="gen-language" onchange="genUpdate()"><option value="EN">EN</option><option value="CN">CN</option></select></div><div class="gen-field"><label>地区<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">内容面向的受众地区——选受众所在地区，不是制作团队所在地。</span></span></label><select id="gen-region" onchange="genUpdate()"><option value="ALL">ALL</option><option value="CN">CN</option></select></div><div class="gen-field"><label>平台<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">这条静态贴文发布在哪个平台。</span></span></label><select id="gf-channel" onchange="genUpdate()"><option value="IG">IG — Instagram</option><option value="YT">YT — YouTube</option></select></div><div class="gen-field"><label>格式<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">静态贴文的类型——如 feed（信息流）、story（快拍）、crsl（轮播）。</span></span></label><input type="text" id="gf-format" placeholder="crsl" value="crsl" oninput="genUpdate()"></div><div class="gen-field"><label>主播 / 主题<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">有出镜人就写成 主播-主题（如 Mariano-Copy-Trading）；没有出镜人，直接写主题本身，不用加这一段。</span></span></label><input type="text" id="gf-hostTitle" placeholder="Economic-Calendar" value="Economic-Calendar" oninput="genUpdate()"></div><div class="gen-field"><label>发布日期<span class="tip" tabindex="0" role="img" aria-label="说明"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 11v5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1.1" fill="currentColor"></circle></svg><span class="tip-bubble">这条贴文上线的日期，会自动转换成 YYMMDD 格式。</span></span></label><input type="text" id="gf-date" lang="en" placeholder="YYYY-MM-DD" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" oninput="genUpdate()"></div></div>
 
         <div class="gen-output">
           <div class="gen-output-label">生成的名字</div>
@@ -1507,7 +1563,7 @@
             <code id="gen-result" class="gen-result incomplete">把每个字段填完才会生成名字</code>
             <button id="gen-copy" class="gen-copy-btn" onclick="genCopy()" disabled="">复制</button>
           </div>
-          <div id="gen-breakdown" class="chip-row" style="margin-top:16px;"></div>
+          <div id="gen-breakdown" class="chip-row" style="margin-top:16px;"><span class="chip chip-reg">SVG</span><span class="sep">-</span><span class="chip chip-lang">EN</span><span class="sep">-</span><span class="chip chip-region">ALL</span><span class="sep under">_</span><span class="chip chip-free">IG</span><span class="sep under">_</span><span class="chip chip-free">static</span><span class="sep under">_</span><span class="chip chip-free">crsl</span><span class="sep under">_</span><span class="chip chip-free">Economic-Calendar</span><span class="sep under">_</span><span class="chip chip-free">…</span></div>
         </div>
       </div>
     </div>
@@ -1516,7 +1572,7 @@
 </div>
 
 <!-- ========== 快速参考 ========== -->
-<div id="panel-reference" class="tab-panel">
+<div id="panel-reference" class="tab-panel active">
 
   <section class="section">
     <div class="wrap">
@@ -1530,11 +1586,13 @@
           <table class="qref-table">
             <tbody>
               <tr><td>每月 1 号前</td><td>脚本 + 封面文字 + 各平台发布文案准备好</td></tr>
-              <tr><td>每月 1 号</td><td>第一次合规审核</td></tr>
-              <tr><td>合规通过后</td><td>To Record → Marcos 录制</td></tr>
+              <tr><td>每月 1 号</td><td>提交 Script 审核（Compliance Team）</td></tr>
+              <tr><td>Script 审核通过后</td><td>Recording → Marcos 录制</td></tr>
               <tr><td>录制完成</td><td>Edit + Cover → Felipe 剪辑 + 封面</td></tr>
-              <tr><td>Edson 通过后</td><td>第二次合规审核</td></tr>
-              <tr><td>第二次合规通过后</td><td>To Schedule → 发布</td></tr>
+              <tr><td>剪辑+封面完成</td><td>Approval → Edson Figma 审核</td></tr>
+              <tr><td>Edson 通过后</td><td>Compliance Approval → 复核脚本一致性 + 封面侵权风险</td></tr>
+              <tr><td>Compliance Approval 通过后</td><td>Final Approval → Nikki 审核最终成品（暂不设时限）</td></tr>
+              <tr><td>Final Approval 通过后</td><td>To Schedule → 发布</td></tr>
             </tbody>
           </table>
         </div>
@@ -1588,8 +1646,9 @@
         <div class="table-card">
           <table class="qref-table">
             <tbody>
-              <tr><td>第一次合规前</td><td>收益承诺/喊单/晒盈利/免责声明/地区定向/文化敏感度，共 11 项</td></tr>
-              <tr><td>第二次合规前</td><td>屏幕合规文字/封面一致性/敏感画面/数据来源/字幕一致性，共 8 项</td></tr>
+              <tr><td>Script 审核前</td><td>收益承诺/喊单/晒盈利/免责声明/地区定向/文化敏感度，共 11 项</td></tr>
+              <tr><td>Compliance Approval 前</td><td>脚本一致性/封面侵权风险，共 4 项</td></tr>
+              <tr><td>Final Approval 前</td><td>敏感画面/数据来源/品牌视觉/地区定向/是否成片，共 5 项（团队自检，非 Nikki 正式标准）</td></tr>
               <tr><td>Risk Warning 位置（竖屏）</td><td>视频封面 + 发布文案</td></tr>
               <tr><td>Risk Warning 位置（横屏）</td><td>画面下方固定条（全程） + 发布文案</td></tr>
               <tr><td>详见</td><td>「合规自查清单」「合规与审核」标签页</td></tr>
@@ -1603,7 +1662,7 @@
         <div class="table-card">
           <table class="qref-table">
             <tbody>
-              <tr><td>脚本合规没过能先录制吗？</td><td>不能，必须合规通过后改 To Record</td></tr>
+              <tr><td>脚本合规没过能先录制吗？</td><td>不能，必须 Script 审核通过后，Monday 状态才会改成 Recording</td></tr>
               <tr><td>一个视频建几个 Monday 任务？</td><td>一个，各平台发布文案在任务对话里分别写</td></tr>
               <tr><td>YouTube 是横屏还是竖屏？</td><td>横屏，单独准备，命名有独立规则</td></tr>
               <tr><td>合规记录放哪里？</td><td>内容专用 SharePoint</td></tr>
@@ -1873,6 +1932,7 @@
 
   genRender();
 </script>
+
 
 
 </body></html>
